@@ -1,0 +1,122 @@
+.nav-bar {
+  background-color: #3367d6;
+  width: 100%;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.app-logo-container {
+  flex: 1;
+}
+
+.app-logo {
+  background-color: transparent;
+  width: 90px;
+}
+
+@media screen and (min-width: 768px) {
+  .app-logo {
+    width: 150px;
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .input-container {
+    margin-left: 0;
+    margin-right: 600px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.search-logo-container {
+  padding: 0;
+  background-color: #2850a7;
+  border: 1px solid #6697ff;
+  text-align: center;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-logo-container {
+    padding: 4px 8px;
+    height: 38px;
+  }
+}
+
+.search-logo {
+  height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-logo {
+    height: 26px;
+  }
+}
+
+.search-input-container {
+  width: 120px;
+  margin-right: 50px;
+  background-color: #2850a7;
+  border: 1px solid #6697ff;
+}
+
+@media screen and (min-width: 768px) {
+  .search-input-container {
+    padding: 7px 8px;
+    width: 250px;
+  }
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.below-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.empty-history-container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-history-head {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .empty-history-head {
+    font-size: 24px;
+  }
+}
+
+.history-container {
+  width: 90%;
+  background-color: #ececec;
+  border-radius: 12px;
+  min-height: 90vh;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 5px;
+}
