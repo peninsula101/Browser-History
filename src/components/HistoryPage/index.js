@@ -1,6 +1,6 @@
 import {Component} from 'react'
-import './index.css'
 import HistoryItem from '../HistoryItem'
+import './index.css'
 
 const initialHistoryList = [
   {
@@ -83,71 +83,72 @@ class HistoryPage extends Component {
     historyList: initialHistoryList,
   }
 
-  onChangeSearchInput = event => {
-    this.setState({
-      searchInput: event.target.value,
-    })
+  onChangeInput = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   onDeleteHistory = id => {
     const {historyList} = this.state
-    const updatedHistoryList = historyList.filter(
-      eachItem => eachItem.id !== id,
-    )
+    const filteredHistoryList = historyList.filter(each => each.id !== id)
 
-    this.setState({
-      historyList: updatedHistoryList,
-    })
+    this.setState({historyList: filteredHistoryList})
   }
 
   render() {
     const {searchInput, historyList} = this.state
-
-    const searchResults = historyList.filter(eachHistory =>
-      eachHistory.title.toLowerCase().includes(searchInput.toLowerCase()),
+    const requiredHistoryList = historyList.filter(each =>
+      each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
     return (
-      <div>
-        <nav className="nav-header">
-          <div className="nav-container">
+      <div className="app-container">
+        <div className="nav-bar">
+          <div className="app-logo-container">
             <img
               src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
-              className="app-logo"
               alt="app logo"
+              className="app-logo"
             />
-            <div className="search-input-container">
+          </div>
+          <div className="input-container">
+            <div className="search-logo-container">
               <img
-                alt="search"
-                className="search-icon"
                 src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+                alt="search"
+                className="search-logo"
               />
+            </div>
+            <div className="search-input-container">
               <input
-                className="input"
                 type="search"
-                placeholder="Search history"
-                onChange={this.onChangeSearchInput}
+                className="search-input"
                 value={searchInput}
+                onChange={this.onChangeInput}
+                placeholder="Search history"
               />
             </div>
           </div>
-        </nav>
-        <div className="bottom-container">
-          <div className="search-results-container">
-            {searchResults.length === 0 ? (
-              <p>There is no history to show</p>
-            ) : (
+        </div>
+        <div className="below-container">
+          {requiredHistoryList.length === 0 ? (
+            <div className="empty-history-container">
+              <h1 className="empty-history-head">
+                There is no history to show
+              </h1>
+            </div>
+          ) : (
+            <div className="history-container">
               <ul className="history-list">
-                {searchResults.map(eachItem => (
+                {requiredHistoryList.map(each => (
                   <HistoryItem
-                    key={eachItem.id}
-                    item={eachItem}
+                    key={each.id}
+                    historyDetails={each}
                     deleteHistory={this.onDeleteHistory}
                   />
                 ))}
               </ul>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     )
